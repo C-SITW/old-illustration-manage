@@ -10,6 +10,16 @@ const routes = [
     path: '/:catchAll',
     name: '/404',
     component: () => import('../views/404.vue')
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    redirect: '/welcome',
+    children: [
+      { path: '/welcome', component: () => import('../views/ziluyou/welcome.vue') },
+      { path: '/user', component: () => import('../views/user/user.vue') },
+    ],
+    component: () => import('../views/home.vue')
   }
 ]
 
