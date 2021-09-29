@@ -6,7 +6,7 @@
         <!-- logo -->
         <img class="logo" src="../assets/images/logo.svg" />
         <!-- 折叠模块 -->
-        <div class="toggle-btn" @click="handletoggleClick">
+        <div class="toggle-btn" @click="handletoggleClick" i>
           {{ isCollapse ? "→" : "←" }}
         </div>
         <!-- 左侧菜单区 -->
@@ -16,7 +16,6 @@
           text-color="#fff"
           :collapse="isCollapse"
           :default-active="activePath"
-          unique-opened
           router
         >
           <!-- 一级菜单 -->
@@ -27,7 +26,7 @@
           >
             <!-- 一级菜单模板 -->
             <template #title>
-              <i class="el-icon-location"></i>
+              <i class="iconfont" v-html="item.icon"></i>
               <span>{{ item.authName }}</span>
             </template>
             <!-- 二级菜单选项 -->
@@ -67,7 +66,8 @@ export default {
       {
         id: 1,
         authName: "作家管理",
-        path: "astrs",
+        path: "creator",
+        icon: "&#xe613;",
         children: [
           { id: 110, authName: "艺术家", path: "astrs1" },
           { id: 111, authName: "雕刻家", path: "astrs2" },
@@ -76,20 +76,41 @@ export default {
       {
         id: 2,
         authName: "插画管理",
-        path: "astrs",
+        path: "Illustration",
+        icon: "&#xe615;",
         children: [
           { id: 120, authName: "模板", path: "astrs3" },
           { id: 121, authName: "测试", path: "astrs4" },
         ],
       },
-      { id: 3, authName: "评论管理", path: "astrs5", children: [] },
+      {
+        id: 3,
+        authName: "评论管理",
+        path: "comment",
+        icon: "&#xe8b4;",
+        children: [],
+      },
       {
         id: 4,
         authName: "用户管理",
-        path: "astrs",
-        children: [{ id: 130, authName: "用户列表", path: "user" }],
+        path: "users",
+        icon: "&#xe614;",
+        children: [
+          {
+            id: 130,
+            authName: "用户列表",
+            path: "user",
+            children: [],
+          },
+        ],
       },
-      { id: 5, authName: "权限管理", path: "rights", children: [] },
+      {
+        id: 5,
+        authName: "权限管理",
+        path: "rights",
+        icon: "&#xe686;",
+        children: [],
+      },
     ]);
 
     // 处理侧边栏展开
@@ -144,13 +165,15 @@ export default {
     color: #fff;
     cursor: pointer;
   }
-  .el-menu {
-    position: absolute;
-    top: 100px;
-    width: 100%;
+  .iconfont {
+    font-size: 18px;
+    margin-right: 10px;
   }
   .el-menu {
     border: none;
+    position: absolute;
+    top: 100px;
+    width: 100%;
   }
 }
 .el-header {
