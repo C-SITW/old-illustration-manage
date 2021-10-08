@@ -132,6 +132,7 @@ table {
 .el-breadcrumb {
   margin-bottom: 20px;
 }
-.el-table {
+.el-table,
+.el-pagination {
   margin-top: 20px;
 }

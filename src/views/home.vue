@@ -69,26 +69,23 @@ export default {
         path: "creator",
         icon: "&#xe613;",
         children: [
-          { id: 110, authName: "艺术家", path: "astrs1" },
-          { id: 111, authName: "雕刻家", path: "astrs2" },
+          { id: 110, authName: "艺术家", path: "artist" },
+          { id: 111, authName: "雕刻家", path: "sculptor" },
         ],
       },
       {
         id: 2,
         authName: "插画管理",
-        path: "Illustration",
+        path: "Illustrations",
         icon: "&#xe615;",
-        children: [
-          { id: 120, authName: "模板", path: "astrs3" },
-          { id: 121, authName: "测试", path: "astrs4" },
-        ],
+        children: [{ id: 120, authName: "插画列表", path: "Illustration" }],
       },
       {
         id: 3,
         authName: "评论管理",
         path: "comment",
         icon: "&#xe8b4;",
-        children: [],
+        children: [{ id: 130, authName: "评论列表", path: "comment" }],
       },
       {
         id: 4,
@@ -97,10 +94,9 @@ export default {
         icon: "&#xe614;",
         children: [
           {
-            id: 130,
+            id: 140,
             authName: "用户列表",
             path: "user",
-            children: [],
           },
         ],
       },
@@ -109,7 +105,7 @@ export default {
         authName: "权限管理",
         path: "rights",
         icon: "&#xe686;",
-        children: [],
+        children: [{ id: 150, authName: "管理用户列表", path: "adminuser" }],
       },
     ]);
 
